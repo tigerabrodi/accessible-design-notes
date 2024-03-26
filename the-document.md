@@ -114,3 +114,70 @@ This makes the website accessible to a wider audience and ensures that everyone 
 A progressively enhanced site should load scripts at the end of the body tag just before the closing `</body>` tag. This ensures that the content is loaded first and that the user can start interacting with the page right away.
 
 # The <title> Element
+
+The `<title>` element is used to define the title of the document. It is displayed in the browser tab and is used by search engines to determine the content of the page.
+
+It's also the accessible name for the page. The `<title>` is read by screen readers when the page is loaded, and it's used by the browser to provide a name for the page when it's bookmarked.
+
+# The <main> Element
+
+The `<main>` element is used to define the main content of the document. It should contain the primary content of the page, such as articles, blog posts, or product listings.
+
+Some screen readers have a shortcut to jump directly to the main content of the page, so it's important to use the `<main>` element to define the main content of the page.
+
+# Skip Links
+
+Skip links are hidden links that allow users to skip over repetitive content and jump directly to the main content of the page. They are useful for users who navigate the web using a keyboard or screen reader.
+
+It's important to mention that skip links aren't just for screen reader users, but for anyone who uses the keyboard to navigate the web. They can be helpful for users who have motor impairments or other disabilities that make it difficult to use a mouse.
+
+They should be hidden and when focused, they should become visible.
+
+Let's look at some CSS:
+
+```css
+[href="”#main”"] {
+  position: absolute;
+  top: 0;
+  right: 100%; /* moves off screen */
+}
+
+[href="”#main”"]:focus {
+  right: auto;
+}
+```
+
+When the user first lands on the page, the focus is on the site itself. After the user presses the tab key, the focus will move to the skip link. When the user presses enter, the focus will move to the main content of the page.
+
+# Putting it all together
+
+```html
+<!DOCTYPE html>
+<!-- the main language of the page declared -->
+<html lang="en">
+<head>
+ <meta charset="utf-8">
+ <!-- a viewport declaration which does not disable zooming -->
+ <meta name="viewport" content="width=device-width, initialscale=1.0">
+ <!-- a non-blocking base64-encoded font resource -->
+ <link rel="stylesheet" href="fonts.css" media="none"
+ onload="if(media!='all')media='all'">
+ <noscript><link rel="stylesheet" href="fonts.css"></noscript>
+ <!-- a non-blocking stylesheet -->
+ <link rel="stylesheet" href="main.css" media="none"
+ onload="if(media!='all')media='all'">
+ <noscript><link rel="stylesheet" href="main.css"></noscript>
+ <!-- a descriptive label for the page -->
+ <title>Inclusive Design Template | Heydon's Site</title>
+</head>
+<body>
+ <!-- a handy skip link for keyboard users -->
+ <a href="#main">skip to main content</a>
+ <!-- logo / page navigation etc. goes here -->
+ <main id="main">
+ <!-- unique content of page goes here -->
+ </main>
+ <!-- a non-blocking javascript resource -->
+ <script src="scripts.js"></script>
+</body
+```
