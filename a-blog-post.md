@@ -71,3 +71,23 @@ If you want it as a subtitle and do not feel like it's too important, you can do
 Hide the subtitle visually, but still inform screen readers about the text being a subtitle.
 
 # The <article> Element
+
+The JAWS screen reader (and only the JAWS screen reader) announces “Article” on entering the element and “Article end” on exiting it. Arguably, this is useful information where there are several <article>s on the same page and the user is reading from top to bottom, element by element
+
+Besides that, articles don't provide much in terms of accessibility.
+
+# Progressive Enhancement
+
+A good test is to turn off CSS and see if the page still has the right structure.
+
+# Heading and link text
+
+Screen readers can list all the headings and links on a page. Make sure they make sense out of context. Autonomously, they should give a good idea of what the content is about.
+
+# Video
+
+To make videos accessible, provide captions and transcripts. This is important for users who are deaf or hard of hearing, as well as for users who are in a noisy environment and can't hear the audio.
+
+## player
+
+Make the player accessible. This includes keyboard navigation, focus styles, and controls that are easy to understand.
